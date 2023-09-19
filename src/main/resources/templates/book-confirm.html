@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking - Potwierdzenie</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+</head>
+<body>
+<nav class="nav flex-column bg-dark navbar-dark">
+    <div>
+        <nav class="nav flex-column bg-green navbar-green" style="background-color: darkgreen">
+        <p style="color: white">Zarezerwowano usługę pomyślnie!</p>
+        </nav>
+        <p style="color: white">
+            Termin usługi: <span th:text="${booking.date}" style="color: white"></span>&nbsp;
+            <p style="color: white">Typ usługi: <span th:text="${booking.getServices().serviceName}" style="color: white"></span></p>
+            <p style="color: white">Koszt usługi: <span th:text="${booking.getPrice()}" style="color: white"></span> zł</p>
+        </p>
+
+        <form method="get" action="/homepage">
+            <input type="submit" value="Zakończ" style="background-color: palegreen">
+        </form>
+
+    </div>
+</nav>
+</body>
+</html>

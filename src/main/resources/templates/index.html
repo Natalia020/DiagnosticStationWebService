@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <form method="get">
+        <div>
+            <label for="date" style="color: white">Termin usługi: </label>
+            <input type="date" id="date" name="date">
+        </div>
+        <input type="submit" value="Znajdź serwisy" style="background-color: crimson">
+    </form>
+    <p></p>
+</nav>
+
+
+    <div th:if="${date}" class="booking-details">
+        <p style="background-color: indianred; color: black">Wybrana data: <span th:text="${date}" ></span></p>
+
+        <div th:each="room: ${rooms}">
+            <a th:href="@{/book-room/{id}(date=${date}, id=${room.id})}" style="color: black">
+                Usługa: <span th:text="${room.serviceName}"></span>
+            </a>
+        </div>
+
+    </div>
+</body>
+</html>

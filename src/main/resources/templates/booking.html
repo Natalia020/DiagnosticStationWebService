@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Booking</title>
+    <link th:href="@{/css/index.css}" rel="stylesheet">
+</head>
+<body>
+<nav class="nav flex-column bg-dark navbar-dark">
+    <p style="color: white">Wybrany termin usługi: <span th:text="${date}" style="color: white"></span></p>
+    <p style="color: white">Wybrana usługa: <span th:text="${roomnumber}" style="color: white"></span></p>
+    <p style="color: white">Cena usługi: <span th:text="${bookingprice}" style="color: white"></span> zł</p>
+
+    <form method="get" action="/book-confirm">
+        <input type="text" name="client_name">
+        <input type="hidden" name="date" th:value="${date}">
+        <input type="hidden" name="serviceid" th:value="${serviceid}">
+        <input type="submit" value="Zarezerwuj" style="background-color: crimson">
+    </form>
+</nav>
+</body>
+</html>
